@@ -1,6 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import path from "path";
 import { isDev } from "./util.js";
+import { getStaticData, pollResources } from "./resourceManager.js";
 
 // This is too have the UI html run on electron
 app.on("ready", () => {
@@ -10,4 +11,7 @@ app.on("ready", () => {
   } else {
     mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"));
   }
+
+  pollResources();
+  getStaticData();
 });
