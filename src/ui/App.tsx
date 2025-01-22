@@ -6,8 +6,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    // @ts-expect-error not type safe
-    window.electron.subsribeStat((stats) => {
+    window.electron.subscribeStat((stats) => {
       console.log(stats);
     });
   }, []);
